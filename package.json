@@ -1,0 +1,26 @@
+{
+  "name": "tarva",
+  "version": "0.0.1",
+  "description": "Test de Regresión Visual (TRV)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akajumi/tarva.git"
+  },
+  "keywords": [
+    "css",
+    "testing"
+  ],
+  "author": "@akaJumi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akajumi/tarva/issues"
+  },
+  "homepage": "https://github.com/akajumi/tarva#readme",
+  "dependencies": {
+    "npm": "^5.8.0"
+  }
+}
