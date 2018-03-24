@@ -20,5 +20,11 @@
     "url": "https://github.com/akajumi/tarva/issues"
   },
   "homepage": "https://github.com/akajumi/tarva#readme",
-  "dependencies": {}
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "fs-extra": "^5.0.0",
+    "path": "^0.12.7"
+  }
 }
