@@ -67,7 +67,7 @@ app.get('/projects/:project', function(req, res) {
   if (mkdir.created) {
     console.log('mkdir.path')
     console.log(mkdir.path)
-    cmd.run(mkdir.path + '\\backstop init')
+    cmd.run('"' + mkdir.path + '"\\backstop init"')
   }
 
   res.send(mkdir)

@@ -10,15 +10,20 @@
       "label": "tablet",
       "width": 1024,
       "height": 768
+    },
+    {
+      "label": "desktop",
+      "width": 1280,
+      "height": 768
     }
   ],
   "onBeforeScript": "chromy/onBefore.js",
   "onReadyScript": "chromy/onReady.js",
   "scenarios": [
     {
-      "label": "BackstopJS Homepage",
+      "label": "Test project",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "https://garris.github.io/BackstopJS/",
+      "url": "file:///C:/TRABAJO/tarva/myCoolProject/index.html",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -30,7 +35,7 @@
       "postInteractionWait": 0,
       "selectors": [],
       "selectorExpansion": true,
-      "misMatchThreshold" : 0.1,
+      "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     }
   ],
