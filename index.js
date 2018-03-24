@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const fs = require('fs-extra')
+const cmd = require('node-cmd')
 
 //creates in $base the directory $dirname; Returns string message
 let createDir = (base, dirname) => {
@@ -17,17 +18,19 @@ let createDir = (base, dirname) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, 0755)
 
-    response = fs.existsSync(dir)
-      ? {
-          path: dir,
-          created: true,
-          description: 'The directory: ' + dir + ' was succesfully created'
-        }
-      : {
-          path: dir,
-          created: false,
-          description: 'Unable to create: ' + dir
-        }
+    if (fs.existsSync(dir)) {
+      response = {
+        path: dir,
+        created: true,
+        description: 'The directory: ' + dir + ' was succesfully created'
+      }
+    } else {
+      response = {
+        path: dir,
+        created: false,
+        description: 'Unable to create: ' + dir
+      }
+    }
   }
 
   return response
@@ -51,10 +54,21 @@ app.get('/', function(req, res) {
   res.send('Hello World')
 })
 
-app.get('/projects/project', function(req, res) {
+app.get('/projects/:project', function(req, res) {
+  // console.log('================================================')
+  // console.log('REQUEST PARAM')
+  // console.log(req.params.project)
+
+  const directory = req.params.project
+
   //creates a folder called 'newdir' in the directory where this file is located
-  var mkdir = createDir(__dirname, 'newdir2')
-  console.log(mkdir)
+  const mkdir = createDir(__dirname, directory)
+
+  if (mkdir.created) {
+    console.log('mkdir.path')
+    console.log(mkdir.path)
+    cmd.run(mkdir.path + '\\backstop init')
+  }
 
   res.send(mkdir)
 })
