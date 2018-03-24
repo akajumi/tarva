@@ -20,7 +20,5 @@
     "url": "https://github.com/akajumi/tarva/issues"
   },
   "homepage": "https://github.com/akajumi/tarva#readme",
-  "dependencies": {
-    "backstopjs": "^3.1.21"
-  }
+  "dependencies": {}
 }
