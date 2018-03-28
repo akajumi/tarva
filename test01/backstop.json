@@ -1,5 +1,5 @@
 {
-  "id": "backstop_default",
+  "id": "backstop_jumi",
   "viewports": [
     {
       "label": "phone",
@@ -21,9 +21,45 @@
   "onReadyScript": "chromy/onReady.js",
   "scenarios": [
     {
-      "label": "Test project",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "label": "Test project 0",
+      "cookiePath": "../jumi/backstop_data/engine_scripts/cookies.json",
       "url": "file:///C:/TRABAJO/tarva/myCoolProject/index.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [".jumbotron"],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Test project 1",
+      "cookiePath": "../jumi/backstop_data/engine_scripts/cookies.json",
+      "url": "file:///C:/TRABAJO/tarva/myCoolProject/index.html",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      "clickSelector": "",
+      "postInteractionWait": 0,
+      "selectors": [],
+      "selectorExpansion": true,
+      "misMatchThreshold": 0.1,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Test project 2",
+      "cookiePath": "../jumi/backstop_data/engine_scripts/cookies.json",
+      "url": "file:///C:/TRABAJO/tarva/myCoolProject/index2.html",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
@@ -40,11 +76,11 @@
     }
   ],
   "paths": {
-    "bitmaps_reference": "backstop_data/bitmaps_reference",
-    "bitmaps_test": "backstop_data/bitmaps_test",
-    "engine_scripts": "backstop_data/engine_scripts",
-    "html_report": "backstop_data/html_report",
-    "ci_report": "backstop_data/ci_report"
+    "bitmaps_reference": "../jumi/backstop_data/bitmaps_reference",
+    "bitmaps_test": "../jumi/backstop_data/bitmaps_test",
+    "engine_scripts": "../jumi/backstop_data/engine_scripts",
+    "html_report": "../jumi/backstop_data/html_report",
+    "ci_report": "../jumi/backstop_data/ci_report"
   },
   "report": ["browser"],
   "engine": "chrome",
