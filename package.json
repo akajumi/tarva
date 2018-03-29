@@ -1,7 +1,7 @@
 {
   "name": "tarva",
   "version": "0.0.1",
-  "description": "Test de Regresión Visual (TRV)",
+  "description": "Test de Regresión Visual (TaRVa)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "css",
-    "testing"
+    "testing",
+    "visual-regresion-test"
   ],
   "author": "@akaJumi",
   "license": "ISC",
@@ -26,7 +27,6 @@
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "fs-extra": "^5.0.0",
-    "node-cmd": "^3.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
