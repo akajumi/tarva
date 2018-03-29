@@ -154,7 +154,123 @@ app.get('/projects/:project/test', function(req, res) {
         html_report: 'projects/' + projectName + '/backstop_data/html_report',
         ci_report: 'projects/' + projectName + '/backstop_data/ci_report'
       },
-      report: ['browser', 'ci'],
+      report: ['browser', 'CI'],
+      engine: 'chrome',
+      engineFlags: [],
+      asyncCaptureLimit: 5,
+      asyncCompareLimit: 50,
+      debug: false,
+      debugWindow: false
+    }
+  })
+    .then(() => {
+      res.send(true)
+    })
+    .catch(() => {
+      res.send(false)
+    })
+})
+
+app.get('/projects/:project/approve', function(req, res) {
+  const projectName = req.params.project
+
+  backstop('approve', {
+    config: {
+      id: 'backstop_' + projectName,
+      viewports: [
+        {
+          label: 'phone',
+          width: 320,
+          height: 480
+        },
+        {
+          label: 'tablet',
+          width: 1024,
+          height: 768
+        },
+        {
+          label: 'desktop',
+          width: 1280,
+          height: 768
+        }
+      ],
+      onBeforeScript: 'chromy/onBefore.js',
+      onReadyScript: 'chromy/onReady.js',
+      scenarios: [
+        {
+          label: 'Test project 0',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: ['.jumbotron'],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        },
+        {
+          label: 'Test project 1',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: [],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        },
+        {
+          label: 'Test project 2',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index2.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: [],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        }
+      ],
+      paths: {
+        bitmaps_reference:
+          'projects/' + projectName + '/backstop_data/bitmaps_reference',
+        bitmaps_test: 'projects/' + projectName + '/backstop_data/bitmaps_test',
+        engine_scripts:
+          'projects/' + projectName + '/backstop_data/engine_scripts',
+        html_report: 'projects/' + projectName + '/backstop_data/html_report',
+        ci_report: 'projects/' + projectName + '/backstop_data/ci_report'
+      },
+      report: ['browser', 'CI'],
       engine: 'chrome',
       engineFlags: [],
       asyncCaptureLimit: 5,
@@ -282,7 +398,7 @@ app.get('/projects/:project', function(req, res) {
         html_report: 'projects/' + projectName + '/backstop_data/html_report',
         ci_report: 'projects/' + projectName + '/backstop_data/ci_report'
       },
-      report: ['browser', 'ci'],
+      report: ['browser', 'CI'],
       engine: 'chrome',
       engineFlags: [],
       asyncCaptureLimit: 5,
@@ -296,6 +412,238 @@ app.get('/projects/:project', function(req, res) {
     })
     .catch(() => {
       res.send(mkdir)
+    })
+})
+
+app.get('/projects/:project/report', function(req, res) {
+  const projectName = req.params.project
+
+  backstop('openReport', {
+    config: {
+      id: 'backstop_' + projectName,
+      viewports: [
+        {
+          label: 'phone',
+          width: 320,
+          height: 480
+        },
+        {
+          label: 'tablet',
+          width: 1024,
+          height: 768
+        },
+        {
+          label: 'desktop',
+          width: 1280,
+          height: 768
+        }
+      ],
+      onBeforeScript: 'chromy/onBefore.js',
+      onReadyScript: 'chromy/onReady.js',
+      scenarios: [
+        {
+          label: 'Test project 0',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: ['.jumbotron'],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        },
+        {
+          label: 'Test project 1',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: [],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        },
+        {
+          label: 'Test project 2',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index2.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: [],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        }
+      ],
+      paths: {
+        bitmaps_reference:
+          'projects/' + projectName + '/backstop_data/bitmaps_reference',
+        bitmaps_test: 'projects/' + projectName + '/backstop_data/bitmaps_test',
+        engine_scripts:
+          'projects/' + projectName + '/backstop_data/engine_scripts',
+        html_report: 'projects/' + projectName + '/backstop_data/html_report',
+        ci_report: 'projects/' + projectName + '/backstop_data/ci_report'
+      },
+      report: ['browser', 'CI'],
+      engine: 'chrome',
+      engineFlags: [],
+      asyncCaptureLimit: 5,
+      asyncCompareLimit: 50,
+      debug: false,
+      debugWindow: false
+    }
+  })
+    .then(() => {
+      res.send(true)
+    })
+    .catch(() => {
+      res.send(false)
+    })
+})
+
+app.get('/projects/:project/reference', function(req, res) {
+  const projectName = req.params.project
+
+  backstop('reference', {
+    config: {
+      id: 'backstop_' + projectName,
+      viewports: [
+        {
+          label: 'phone',
+          width: 320,
+          height: 480
+        },
+        {
+          label: 'tablet',
+          width: 1024,
+          height: 768
+        },
+        {
+          label: 'desktop',
+          width: 1280,
+          height: 768
+        }
+      ],
+      onBeforeScript: 'chromy/onBefore.js',
+      onReadyScript: 'chromy/onReady.js',
+      scenarios: [
+        {
+          label: 'Test project 0',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: ['.jumbotron'],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        },
+        {
+          label: 'Test project 1',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: [],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        },
+        {
+          label: 'Test project 2',
+          cookiePath:
+            'projects/' +
+            projectName +
+            '/backstop_data/engine_scripts/cookies.json',
+          url: 'file:///C:/TRABAJO/tarva/myCoolProject/index2.html',
+          referenceUrl: '',
+          readyEvent: '',
+          readySelector: '',
+          delay: 0,
+          hideSelectors: [],
+          removeSelectors: [],
+          hoverSelector: '',
+          clickSelector: '',
+          postInteractionWait: 0,
+          selectors: [],
+          selectorExpansion: true,
+          misMatchThreshold: 0.1,
+          requireSameDimensions: true
+        }
+      ],
+      paths: {
+        bitmaps_reference:
+          'projects/' + projectName + '/backstop_data/bitmaps_reference',
+        bitmaps_test: 'projects/' + projectName + '/backstop_data/bitmaps_test',
+        engine_scripts:
+          'projects/' + projectName + '/backstop_data/engine_scripts',
+        html_report: 'projects/' + projectName + '/backstop_data/html_report',
+        ci_report: 'projects/' + projectName + '/backstop_data/ci_report'
+      },
+      report: ['browser', 'CI'],
+      engine: 'chrome',
+      engineFlags: [],
+      asyncCaptureLimit: 5,
+      asyncCompareLimit: 50,
+      debug: false,
+      debugWindow: false
+    }
+  })
+    .then(() => {
+      res.send(true)
+    })
+    .catch(() => {
+      res.send(false)
     })
 })
 
