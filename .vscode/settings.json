@@ -1,3 +1,69 @@
 {
-    "git.ignoreLimitWarning": true
+  // Coloque su configuración en este archivo para sobrescribir la configuración predeterminada.
+  "workbench.iconTheme": "vs-seti",
+  "workbench.colorTheme": "Nord",
+
+  // ARCHIVO
+  // Carácter predeterminado de final de línea. Utilice \n para LF y \r\n para CRLF.
+  "files.eol": "\n",
+  // Si se habilita, se recortará el espacio final cuando se guarde un archivo.
+  "files.trimTrailingWhitespace": true,
+  // Si se habilita, inserte una nueva línea final al final del archivo cuando lo guarde.
+  "files.insertFinalNewline": true,
+  // Cuando se habilita, recorta todas las nuevas líneas después de la última nueva línea al final del archivo al guardarlo
+  "files.trimFinalNewlines": true,
+
+  // EDITOR
+  // Controla el estilo del cursor. Los valores aceptados son "block", "block-outline", "line", "line-thin", "underline" y "underline-thin"
+  "editor.cursorStyle": "line",
+  // Al abrir un archivo, se detectarán `editor.tabSize` y `editor.insertSpaces` en función del contenido del archivo.
+  "editor.detectIndentation": false,
+  // Controla el tamaño de fuente en píxeles.
+  "editor.fontSize": 14,
+  // Controla si el editor debe formatear automáticamente el contenido pegado. Debe haber disponible un formateador capaz de aplicar formato a un intervalo dentro de un documento.
+  "editor.formatOnPaste": true,
+  // Formatea un archivo al guardarlo. Debe haber un formateador disponible, el archivo no debe guardarse automáticamente y el editor no debe estar cerrándose.
+  "editor.formatOnSave": true,
+  // Insertar espacios al presionar TAB. Este valor se invalida en función del contenido del archivo cuando "editor.detectIndentation" está activado.
+  "editor.insertSpaces": true,
+  // El modificador que se usará para agregar varios cursores con el mouse. "ctrlCmd" se asigna a "Control" en Windows y Linux y a "Comando" en OSX. Los gestos del mouse Ir a la definición y Abrir vínculo se adaptarán de modo que no entren en conflicto con el modificador multicursor.
+  "editor.multiCursorModifier": "ctrlCmd",
+  // Controla si el editor debe representar caracteres de control
+  "editor.renderControlCharacters": false,
+  // Controla cómo debe representar el editor los espacios en blanco. Las posibilidades son "none", "boundary" y "all". La opción "boundary" no representa los espacios individuales entre palabras.
+  "editor.renderWhitespace": "all",
+  // Representar reglas verticales después de un cierto número de caracteres monoespacio. Usar multiples valores para multiples reglas. No se dibuja ninguna regla si la matriz esta vacía.
+  "editor.rulers": [80],
+  // El número de espacios a los que equivale una tabulación. Este valor se invalida según el contenido del archivo cuando `editor.detectIndentation` está activado.
+  "editor.tabSize": 2,
+  // Controls the wrapping column of the editor when `editor.wordWrap` is 'wordWrapColumn' or 'bounded'.
+  "editor.wordWrapColumn": 80,
+  // Controla si se muestra el minimapa
+  "editor.minimap.enabled": false,
+
+  // TERMINAL
+  "terminal.integrated.shell.windows":
+    "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+
+  // VENTANA
+  // Controla cómo se vuelven a abrir las ventanas tras un reinicio. Seleccione "none" para comenzar siempre con un área de trabajo vacía, "one" para volver a abrir la última ventana en la que trabajó, "folders" para volver a abrir todas las ventanas que tenían carpetas abiertas o "all" para volver a abrir todas las ventanas de la última sesión.
+  "window.restoreWindows": "all",
+
+  // PRETTIER
+  // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
+  "prettier.eslintIntegration": true,
+  // Path to a .prettierignore or similar file
+  "prettier.ignorePath": ".prettierignore",
+  // Fit code within this line limit
+  "prettier.printWidth": 80,
+  // Whether to add a semicolon at the end of every line
+  "prettier.semi": false,
+  // If true, will use single instead of double quotes
+  "prettier.singleQuote": true,
+  // Number of spaces it should use per tab
+  "prettier.tabWidth": 2,
+  // Controls the printing of trailing commas wherever possible
+  "prettier.trailingComma": "none",
+  // Indent lines with tabs
+  "prettier.useTabs": false
 }
