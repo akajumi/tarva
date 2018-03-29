@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-module.exports = (base, dirname) => {
+const createDir = (base, dirname) => {
   const dir = path.resolve(base, dirname)
   let response = {
     path: dir,
@@ -29,3 +29,5 @@ module.exports = (base, dirname) => {
 
   return response
 }
+
+module.exports = createDir
