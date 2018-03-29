@@ -1,9 +1,8 @@
+const backstop = require('backstopjs')
 const express = require('express')
 const bodyParser = require('body-parser')
-const backstop = require('backstopjs')
-const createDir = require('./server/createDir')
-
 const PROJECTS_DIRECTORY = __dirname + '/projects'
+const createDir = require('./server/createDir')
 
 const app = express()
 
@@ -493,6 +492,6 @@ app.get('/projects/:project/report', function(req, res) {
     })
 })
 
-var server = app.listen(3030, function() {
+const server = app.listen(3030, function() {
   console.log('Listening on port %s...', server.address().port)
 })
