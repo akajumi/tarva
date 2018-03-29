@@ -1,3 +1,0 @@
-// Run npm in another path
-// npm start --prefix path/to/your/app
-npm run genConfig --prefix ./node_modules/backstopjs/
