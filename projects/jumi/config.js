@@ -24,12 +24,12 @@ const config = options => {
     onReadyScript: '',
     scenarios: [
       {
-        label: 'Test project 0',
+        label: 'Test',
         cookiePath:
           'projects/' +
           projectName +
           '/backstop_data/engine_scripts/cookies.json',
-        url: 'file:///C:/TRABAJO/tarva/testProject/index.html',
+        url: 'https://www.sansebastianturismo.com/es/',
         referenceUrl: '',
         readyEvent: '',
         readySelector: '',
@@ -39,7 +39,7 @@ const config = options => {
         hoverSelector: '',
         clickSelector: '',
         postInteractionWait: 0,
-        selectors: ['.jumbotron'],
+        selectors: ['document'],
         selectorExpansion: true,
         misMatchThreshold: 0.1,
         requireSameDimensions: true
