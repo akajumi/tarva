@@ -2,7 +2,7 @@ const config = options => {
   const projectName = options.projectName
 
   return {
-    id: 'backstop_' + projectName,
+    id: projectName,
     viewports: [
       {
         label: 'phone',
