@@ -1,5 +1,5 @@
 # Dependency directories
 node_modules/
 
-# Projects directory
-projects/
+# Projects data directory
+data/
