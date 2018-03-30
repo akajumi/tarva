@@ -1,5 +1,16 @@
 const fs = require('fs-extra')
 const path = require('path')
+const { readdirSync } = require('fs')
+
+const listDir = source => {
+  const list = readdirSync(source)
+
+  const response = {
+    projects: list
+  }
+
+  return response
+}
 
 const createDir = (base, dirname) => {
   const dir = path.resolve(base, dirname)
@@ -30,4 +41,7 @@ const createDir = (base, dirname) => {
   return response
 }
 
-module.exports = createDir
+module.exports = {
+  createDir,
+  listDir
+}

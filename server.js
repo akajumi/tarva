@@ -2,7 +2,7 @@ const backstop = require('backstopjs')
 const express = require('express')
 const bodyParser = require('body-parser')
 const PROJECTS_DIRECTORY = __dirname + '/projects'
-const createDir = require('./server/createDir')
+const filesystem = require('./server/filesystem')
 
 const app = express()
 
@@ -21,9 +21,15 @@ app.get('/', function(req, res) {
   res.send('Tarva API server.')
 })
 
+app.get('/projects', function(req, res) {
+  const projects = filesystem.listDir(PROJECTS_DIRECTORY)
+
+  res.send(projects)
+})
+
 app.get('/projects/:project', function(req, res) {
   const projectName = req.params.project
-  const mkdir = createDir(PROJECTS_DIRECTORY, projectName)
+  const mkdir = filesystem.createDir(PROJECTS_DIRECTORY, projectName)
 
   res.send(mkdir)
 })
