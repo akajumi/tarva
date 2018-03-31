@@ -1,3 +1,3 @@
-# tarva
+# verta
 
-Test de Regresión Visual (TaRVa)
+Visual Regresion Test (VeRTa)

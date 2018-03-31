@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 })
 
 app.get('/', function(req, res) {
-  res.send('Tarva API server.')
+  res.send('VeRTa API server.')
 })
 
 app.get('/projects', function(req, res) {
