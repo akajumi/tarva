@@ -2,6 +2,7 @@ const backstop = require('backstopjs')
 const express = require('express')
 const bodyParser = require('body-parser')
 const PROJECTS_DIRECTORY = __dirname + '/projects'
+
 const filesystem = require('./server/filesystem')
 
 const app = express()
@@ -17,16 +18,19 @@ app.use(function(req, res, next) {
   next()
 })
 
+// API root. Justa a message
 app.get('/', function(req, res) {
   res.send('VeRTa API server.')
 })
 
+// List of projects
 app.get('/projects', function(req, res) {
   const projects = filesystem.listDir(PROJECTS_DIRECTORY)
 
   res.send(projects)
 })
 
+// Create new project (directory and config file)
 app.get('/projects/:project', function(req, res) {
   const projectName = req.params.project
   const mkdir = filesystem.createDir(PROJECTS_DIRECTORY, projectName)
@@ -34,14 +38,14 @@ app.get('/projects/:project', function(req, res) {
   res.send(mkdir)
 })
 
+// Create project's reference
 app.get('/projects/:project/reference', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
+  const projectConfig = require(configPath)
 
   backstop('reference', {
-    config: require(configPath)({
-      projectName: projectName
-    })
+    config: projectConfig()
   })
     .then(() => {
       res.send(true)
@@ -51,14 +55,14 @@ app.get('/projects/:project/reference', function(req, res) {
     })
 })
 
+// Create project's test files
 app.get('/projects/:project/test', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
+  const projectConfig = require(configPath)
 
   backstop('test', {
-    config: require(configPath)({
-      projectName: projectName
-    })
+    config: projectConfig()
   })
     .then(() => {
       res.send(true)
@@ -68,14 +72,14 @@ app.get('/projects/:project/test', function(req, res) {
     })
 })
 
+// Approve project's test files
 app.get('/projects/:project/approve', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
+  const projectConfig = require(configPath)
 
   backstop('approve', {
-    config: require(configPath)({
-      projectName: projectName
-    })
+    config: projectConfig()
   })
     .then(() => {
       res.send(true)
@@ -85,14 +89,14 @@ app.get('/projects/:project/approve', function(req, res) {
     })
 })
 
+// Show project's report
 app.get('/projects/:project/report', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
+  const projectConfig = require(configPath)
 
   backstop('openReport', {
-    config: require(configPath)({
-      projectName: projectName
-    })
+    config: projectConfig()
   })
     .then(() => {
       res.send(true)

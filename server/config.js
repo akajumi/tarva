@@ -31,8 +31,8 @@ const config = projectName => {
     ],
     scenarios: [
       {
-        label: 'Adimedia homepage', // [required] Tag saved with your reference images
-        url: 'https://www.adimedia.net/',
+        label: 'Wikipedia: Regression_testing', // [required] Tag saved with your reference images
+        url: 'https://en.wikipedia.org/wiki/Regression_testing',
         referenceUrl: '', // Specify a different state or environment when creating reference.
         selectors: ['document'], // Array of selectors to capture. Defaults to document if omitted. Use "viewport" to capture the viewport size. See Targeting elements in the next section for more info... OPTIONS: document, viewport, #myFeature, etc
         selectorExpansion: true, // Set selectorExpansion to true to find and take screenshots of all matching selector
@@ -74,4 +74,4 @@ const config = projectName => {
   }
 }
 
-export default config
+module.exports = config

@@ -1,6 +1,8 @@
 const fs = require('fs-extra')
 const path = require('path')
-const { readdirSync } = require('fs')
+const { readdirSync, writeFile } = require('fs')
+const CONFIG_FILE = './config.js'
+const defaultConfig = require('./config')
 
 const listDir = source => {
   const list = readdirSync(source)
@@ -29,6 +31,8 @@ const createDir = (base, dirname) => {
         created: true,
         description: 'The project "' + dirname + '" was succesfully created.'
       }
+
+      createConfig(base, dirname)
     } else {
       response = {
         path: dir,
@@ -41,7 +45,22 @@ const createDir = (base, dirname) => {
   return response
 }
 
+const createConfig = (base, dirname) => {
+  const configfile = path.resolve(base, dirname, CONFIG_FILE)
+  const config = defaultConfig(dirname)
+  const json = JSON.stringify(config)
+  let configModule =
+    'const config = () => { return ' + json + '}\r\nmodule.exports = config'
+
+  writeFile(configfile, configModule, 'utf8', err => {
+    if (err) throw err
+  })
+
+  return configfile
+}
+
 module.exports = {
+  listDir,
   createDir,
-  listDir
+  createConfig
 }
