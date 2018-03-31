@@ -17,7 +17,7 @@ const createDir = (base, dirname) => {
   let response = {
     path: dir,
     created: false,
-    description: 'The directory: ' + dir + '/ already exists'
+    description: 'The project "' + dirname + '" already exists.'
   }
 
   if (!fs.existsSync(dir)) {
@@ -27,13 +27,13 @@ const createDir = (base, dirname) => {
       response = {
         path: dir,
         created: true,
-        description: 'The directory: ' + dir + ' was succesfully created'
+        description: 'The project "' + dirname + '" was succesfully created.'
       }
     } else {
       response = {
         path: dir,
         created: false,
-        description: 'Unable to create: ' + dir
+        description: 'Unable to create project "' + dirname + '".'
       }
     }
   }
