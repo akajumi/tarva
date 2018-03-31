@@ -1,3 +1,3 @@
-# verta
+# VeRTa
 
-Visual Regresion Test (VeRTa)
+Visual Regression Test (VeRTa)

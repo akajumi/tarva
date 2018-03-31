@@ -1,7 +1,7 @@
 {
   "name": "verta",
   "version": "0.0.1",
-  "description": "Test de Regresión Visual (VeRTa)",
+  "description": "Visual Regression Test (VeRTa)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/akajumi/verta.git"
   },
-  "keywords": ["css", "testing", "visual-regresion-test"],
+  "keywords": ["node", "css", "testing", "visual-regresion-test", "backstopjs"],
   "author": "@akaJumi",
   "license": "ISC",
   "bugs": {
