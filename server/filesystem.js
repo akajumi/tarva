@@ -1,5 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
+const decache = require('decache')
 const { readdirSync, writeFile } = require('fs')
 const CONFIG_FILE = './config.js'
 const defaultConfig = require('./config')
@@ -10,6 +11,7 @@ const listDir = source => {
   const listComplete = list.map(project => {
     const projectName = project
     const configPath = '../projects/' + projectName + '/config.js'
+    decache(configPath)
     const projectConfig = require(configPath)
     const config = projectConfig()
 
@@ -84,8 +86,22 @@ const createConfig = (base, dirname, description) => {
   return configfile
 }
 
+const updateConfig = (base, dirname, config) => {
+  const configfile = path.resolve(base, dirname, CONFIG_FILE)
+  const json = JSON.stringify(config)
+  let configModule =
+    'const config = () => { return ' + json + '}\r\nmodule.exports = config'
+
+  writeFile(configfile, configModule, 'utf8', err => {
+    if (err) throw err
+  })
+
+  return configfile
+}
+
 module.exports = {
   listDir,
   createProject,
-  createConfig
+  createConfig,
+  updateConfig
 }

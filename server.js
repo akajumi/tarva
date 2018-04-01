@@ -56,6 +56,20 @@ app.post('/api/projects/:project', function(req, res) {
   res.send(mkdir)
 })
 
+// Update project (config file)
+app.post('/api/projects/:project/update', function(req, res) {
+  const projectName = req.params.project
+  const projectConfig = req.body.config
+
+  const update = filesystem.updateConfig(
+    PROJECTS_DIRECTORY,
+    projectName,
+    projectConfig
+  )
+
+  res.send(update)
+})
+
 // Create project's reference
 app.get('/api/projects/:project/reference', function(req, res) {
   const projectName = req.params.project
