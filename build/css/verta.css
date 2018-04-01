@@ -64,6 +64,9 @@
 }
 
 /* COMMON */
+fieldset {
+  position: relative;
+}
 .paper-btn:focus,
 [type='button']:focus,
 button:focus {
