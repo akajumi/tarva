@@ -1,0 +1,91 @@
+/* HEADER */
+.vrt-header.paper {
+  margin: 10px;
+  padding: 0;
+}
+.vrt-header.paper .row {
+  margin: 0;
+  padding: 0;
+}
+.vrt-header.paper .col {
+  padding: 10px;
+}
+.vrt-logo {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+}
+.vrt-logo small {
+  display: block;
+  font-size: 16px;
+}
+.vrt-header a {
+  background: none;
+}
+
+/* CONTENT */
+.vrt-content.paper {
+  margin: 10px;
+  padding: 0;
+}
+.vrt-content.paper .row {
+  margin: 0;
+  padding: 0;
+}
+.vrt-content.paper .col {
+  padding: 20px;
+}
+.vrt-content.paper h2 {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+}
+.vrt-content a {
+  background: none;
+}
+
+.vrt-content.paper .card {
+  margin: 10px 20px 10px 0;
+}
+
+/* FORMS */
+.vrt-error input,
+.vrt-error textarea {
+  border: 2px solid #c00000;
+  color: #c00000;
+}
+.vrt-error label {
+  color: #c00000;
+}
+.vrt-error-description {
+  color: #c00000;
+  display: block;
+  font-size: 16px;
+  padding-top: 8px;
+}
+
+/* COMMON */
+.alert {
+  position: relative;
+}
+.vrt-close-alert {
+  background: #fff;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 20px;
+  line-height: 9px;
+  padding: 3px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  text-align: center;
+  width: 20px;
+}
+.vtr-no-padding {
+  padding: 5px 0 !important;
+}
+label {
+  cursor: pointer;
+}
