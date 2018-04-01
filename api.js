@@ -2,11 +2,14 @@ const backstop = require('backstopjs')
 const express = require('express')
 const bodyParser = require('body-parser')
 const PROJECTS_DIRECTORY = __dirname + '/projects'
-
 const filesystem = require('./server/filesystem')
-
 const app = express()
 
+// To serve static pages
+app.use(express.static(__dirname + '/data'))
+app.use(express.static(__dirname + '/build'))
+
+// API server
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(function(req, res, next) {
@@ -18,20 +21,20 @@ app.use(function(req, res, next) {
   next()
 })
 
-// API root. Justa a message
-app.get('/', function(req, res) {
+// API root. Just a message
+app.get('/api/', function(req, res) {
   res.send('VeRTa API server.')
 })
 
 // List of projects
-app.get('/projects', function(req, res) {
+app.get('/api/projects', function(req, res) {
   const projects = filesystem.listDir(PROJECTS_DIRECTORY)
 
   res.send(projects)
 })
 
 // Create new project (directory and config file)
-app.get('/projects/:project', function(req, res) {
+app.get('/api/projects/:project', function(req, res) {
   const projectName = req.params.project
   const mkdir = filesystem.createDir(PROJECTS_DIRECTORY, projectName)
 
@@ -39,7 +42,7 @@ app.get('/projects/:project', function(req, res) {
 })
 
 // Create project's reference
-app.get('/projects/:project/reference', function(req, res) {
+app.get('/api/projects/:project/reference', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
   const projectConfig = require(configPath)
@@ -56,7 +59,7 @@ app.get('/projects/:project/reference', function(req, res) {
 })
 
 // Create project's test files
-app.get('/projects/:project/test', function(req, res) {
+app.get('/api/projects/:project/test', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
   const projectConfig = require(configPath)
@@ -73,7 +76,7 @@ app.get('/projects/:project/test', function(req, res) {
 })
 
 // Approve project's test files
-app.get('/projects/:project/approve', function(req, res) {
+app.get('/api/projects/:project/approve', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
   const projectConfig = require(configPath)
@@ -90,7 +93,7 @@ app.get('/projects/:project/approve', function(req, res) {
 })
 
 // Show project's report
-app.get('/projects/:project/report', function(req, res) {
+app.get('/api/projects/:project/report', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
   const projectConfig = require(configPath)
@@ -106,6 +109,6 @@ app.get('/projects/:project/report', function(req, res) {
     })
 })
 
-const server = app.listen(3030, function() {
+const server = app.listen(3000, function() {
   console.log('Listening on port %s...', server.address().port)
 })
