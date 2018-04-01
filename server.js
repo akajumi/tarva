@@ -99,7 +99,7 @@ app.get('/projects/:project/report', function(req, res) {
     config: projectConfig()
   })
     .then(() => {
-      res.send(true)
+      res.send('Report in new tab.')
     })
     .catch(() => {
       res.send(false)

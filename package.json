@@ -10,7 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/akajumi/verta.git"
   },
-  "keywords": ["node", "css", "testing", "visual-regresion-test", "backstopjs"],
+  "keywords": [
+    "node",
+    "css",
+    "testing",
+    "visual-regression-test",
+    "backstopjs"
+  ],
   "author": "@akaJumi",
   "license": "ISC",
   "bugs": {
