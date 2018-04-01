@@ -49,8 +49,7 @@
 }
 
 /* FORMS */
-.vrt-error input,
-.vrt-error textarea {
+.vrt-error input {
   border: 2px solid #c00000;
   color: #c00000;
 }
@@ -65,23 +64,10 @@
 }
 
 /* COMMON */
-.alert {
-  position: relative;
-}
-.vrt-close-alert {
-  background: #fff;
-  border: 2px solid #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  height: 20px;
-  line-height: 9px;
-  padding: 3px;
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  text-align: center;
-  width: 20px;
+.paper-btn:focus,
+[type='button']:focus,
+button:focus {
+  border: 2px solid #41403e;
 }
 .vtr-no-padding {
   padding: 5px 0 !important;
