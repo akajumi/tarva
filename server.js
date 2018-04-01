@@ -34,9 +34,15 @@ app.get('/api/projects', function(req, res) {
 })
 
 // Create new project (directory and config file)
-app.get('/api/projects/:project', function(req, res) {
+app.post('/api/projects/:project', function(req, res) {
   const projectName = req.params.project
-  const mkdir = filesystem.createDir(PROJECTS_DIRECTORY, projectName)
+  const projectDescription = req.body.description
+
+  const mkdir = filesystem.createProject(
+    PROJECTS_DIRECTORY,
+    projectName,
+    projectDescription
+  )
 
   res.send(mkdir)
 })

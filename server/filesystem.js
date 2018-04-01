@@ -14,15 +14,27 @@ const listDir = source => {
   return response
 }
 
-const createDir = (base, dirname) => {
-  const dir = path.resolve(base, dirname)
-  let response = {
-    path: dir,
-    created: false,
-    description: 'The project "' + dirname + '" already exists.'
+const createProject = (base, dirname, description) => {
+  const response = createDir(base, dirname)
+
+  if (response.created) {
+    createConfig(base, dirname, description)
   }
 
-  if (!fs.existsSync(dir)) {
+  return response
+}
+
+const createDir = (base, dirname) => {
+  const dir = path.resolve(base, dirname)
+  let response
+
+  if (fs.existsSync(dir)) {
+    response = {
+      path: dir,
+      created: false,
+      description: 'The project "' + dirname + '" already exists.'
+    }
+  } else {
     fs.mkdirSync(dir, '0755')
 
     if (fs.existsSync(dir)) {
@@ -31,8 +43,6 @@ const createDir = (base, dirname) => {
         created: true,
         description: 'The project "' + dirname + '" was succesfully created.'
       }
-
-      createConfig(base, dirname)
     } else {
       response = {
         path: dir,
@@ -45,9 +55,10 @@ const createDir = (base, dirname) => {
   return response
 }
 
-const createConfig = (base, dirname) => {
+const createConfig = (base, dirname, description) => {
   const configfile = path.resolve(base, dirname, CONFIG_FILE)
-  const config = defaultConfig(dirname)
+  let config = defaultConfig(dirname)
+  config['description'] = description
   const json = JSON.stringify(config)
   let configModule =
     'const config = () => { return ' + json + '}\r\nmodule.exports = config'
@@ -61,6 +72,6 @@ const createConfig = (base, dirname) => {
 
 module.exports = {
   listDir,
-  createDir,
+  createProject,
   createConfig
 }
