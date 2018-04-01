@@ -33,6 +33,15 @@ app.get('/api/projects', function(req, res) {
   res.send(projects)
 })
 
+// Serve project config file
+app.get('/api/projects/:project', function(req, res) {
+  const projectName = req.params.project
+  const configPath = './projects/' + projectName + '/config.js'
+  const projectConfig = require(configPath)
+
+  res.send(projectConfig())
+})
+
 // Create new project (directory and config file)
 app.post('/api/projects/:project', function(req, res) {
   const projectName = req.params.project
