@@ -7,8 +7,22 @@ const defaultConfig = require('./config')
 const listDir = source => {
   const list = readdirSync(source)
 
+  const listComplete = list.map(project => {
+    const projectName = project
+    const configPath = '../projects/' + projectName + '/config.js'
+    const projectConfig = require(configPath)
+    const config = projectConfig()
+
+    const result = {
+      id: config.id,
+      description: config.description
+    }
+
+    return result
+  })
+
   const response = {
-    projects: list
+    projects: listComplete
   }
 
   return response
