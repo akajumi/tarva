@@ -96,6 +96,8 @@ const updateConfig = (base, dirname, config) => {
     if (err) throw err
   })
 
+  decache(configfile)
+
   return configfile
 }
 

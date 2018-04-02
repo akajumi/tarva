@@ -1,6 +1,7 @@
 const backstop = require('backstopjs')
 const express = require('express')
 const bodyParser = require('body-parser')
+const decache = require('decache')
 const PROJECTS_DIRECTORY = __dirname + '/projects'
 const filesystem = require('./server/filesystem')
 const app = express()
@@ -37,6 +38,7 @@ app.get('/api/projects', function(req, res) {
 app.get('/api/projects/:project', function(req, res) {
   const projectName = req.params.project
   const configPath = './projects/' + projectName + '/config.js'
+  decache(configPath)
   const projectConfig = require(configPath)
 
   res.send(projectConfig())
