@@ -9,7 +9,7 @@ const config = projectName => {
         height: 667
       },
       {
-        label: 'tablet-portrair',
+        label: 'tablet-portrait',
         width: 768,
         height: 1024
       },

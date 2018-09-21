@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/akajumi/verta#readme",
   "dependencies": {
-    "backstopjs": "^3.1.21",
+    "backstopjs": "^3.5.12",
     "body-parser": "^1.18.2",
     "decache": "^4.4.0",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^7.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
