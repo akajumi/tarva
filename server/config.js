@@ -65,8 +65,10 @@ const config = projectName => {
       ci_report: 'data/' + projectName + '/backstop_data/ci_report'
     },
     report: [], // 'browser', 'CI'
-    engine: 'chrome', // Chrome headless
-    engineFlags: [],
+    engine: 'puppeteer', // engine: 'chrome', // Chrome headless
+    engineOptions: {
+      args: ['--no-sandbox']
+    }, // engineFlags: [],
     asyncCaptureLimit: 5, // Capturing screens in parallel
     asyncCompareLimit: 50, // Comparing screens in parallel
     debug: false,

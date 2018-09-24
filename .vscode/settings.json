@@ -42,12 +42,7 @@
   "editor.minimap.enabled": false,
 
   // TERMINAL
-  "terminal.integrated.shell.windows":
-    "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-
-  // VENTANA
-  // Controla cómo se vuelven a abrir las ventanas tras un reinicio. Seleccione "none" para comenzar siempre con un área de trabajo vacía, "one" para volver a abrir la última ventana en la que trabajó, "folders" para volver a abrir todas las ventanas que tenían carpetas abiertas o "all" para volver a abrir todas las ventanas de la última sesión.
-  "window.restoreWindows": "all",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
 
   // PRETTIER
   // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
